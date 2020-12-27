@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const metaSchema = new Schema({
-    attr:{
-        type:String,
-        required:true,
-    },
-    value:{
-        type:String,
-        required:true,
-    }
-   })
+  attr: {
+    type: String,
+    required: true,
+  },
+  value: {
+    type: String,
+    required: true,
+  }
+})
 
 const userSchema = new Schema({
   username: {
@@ -21,7 +21,7 @@ const userSchema = new Schema({
     trim: true,
     minlength: 3
   },
-  email:{
+  email: {
     type: String,
     required: true,
     unique: true,
@@ -30,11 +30,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  password:{
-      type: String,
-      required: true,
+  password: {
+    type: String,
+    required: true,
   },
-  metadata : [metadata]
+  metadata: [metaSchema]
 }, {
   timestamps: true,
 });
