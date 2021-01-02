@@ -10,44 +10,17 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
-  name: {
-    type: String,
-    required: true,
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-  school: {
-    type: String,
-    required: true,
-  },
-  coaching: {
-    type: String,
-    required: true,
-  },
-  schoolClass: {
-    type: String,
-    required: true,
-  },
-  coachingBatch: {
-    type: String,
-    required: true,
-  },
-  targetExam: {
-    type: [String],
-    required: true,
-  },
-  weeklyHoursCommitted: {
-    type: Number,
-    required: true,
-  }
+  name: { type: String },
+  gender: { type: String },
+  city: { type: String },
+  school: { type: String },
+  coaching: { type: String },
+  schoolClass: { type: String },
+  coachingBatch: { type: String },
+  targetExam: { type: [String] },
+  weeklyHoursCommitted: { type: Number }
 }, {
   timestamps: true,
 });
