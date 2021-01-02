@@ -9,12 +9,17 @@ router.route('/').get((req, res) => {
 
 // route to add
 router.route('/add').post((req, res) => {
+    const text = req.body.text;
     const ImgUrl = req.body.imgUrl;
-    const questionText = req.body.questionText;
     const options = req.body.options;
-    const metadata = req.body.metadata;
+    const tags = req.body.tags;
+    const subject = req.body.subject;
+    const chapter = req.body.chapter;
+    const difficulty = req.body.difficulty;
 
-    const newQuestion = new Question({ ImgUrl, questionText, options, metadata });
+    const newQuestion = new Question({
+        text, ImgUrl, options, tags, subject, chapter, difficulty
+    });
 
     newQuestion.save()
         .then(() => res.json('Question added!'))
@@ -23,25 +28,31 @@ router.route('/add').post((req, res) => {
 
 // route to get by id
 router.route('/:id').get((req, res) => {
-    User.findById(req.params.id)
+    Question.findById(req.params.id)
         .then(user => res.json(user))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // route to delete by id
 router.route('/:id').delete((req, res) => {
-    User.findByIdAndDelete(req.params.id)
+    Question.findByIdAndDelete(req.params.id)
         .then(() => res.json('User deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // route to update by id
 router.route('/update/:id').post((req, res) => {
-    User.findById(req.params.id)
-        .then(user => {
-            user.username = req.body.username;
-
-            user.save()
+    Question.findById(req.params.id)
+        .then(question => {
+            question.text = req.body.text;
+            question.ImgUrl = req.body.imgUrl;
+            question.options = req.body.options;
+            question.tags = req.body.tags;
+            question.subject = req.body.subject;
+            question.chapter = req.body.chapter;
+            question.difficulty = req.body.difficulty;
+            
+            question.save()
                 .then(() => res.json('User updated!'))
                 .catch(err => res.status(400).json('Error: ' + err));
         })
