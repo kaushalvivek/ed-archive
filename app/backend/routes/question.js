@@ -29,14 +29,14 @@ router.route('/add').post((req, res) => {
 // route to get by id
 router.route('/:id').get((req, res) => {
     Question.findById(req.params.id)
-        .then(user => res.json(user))
+        .then(question => res.json(question))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // route to delete by id
 router.route('/:id').delete((req, res) => {
     Question.findByIdAndDelete(req.params.id)
-        .then(() => res.json('User deleted.'))
+        .then(() => res.json('Question deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -51,9 +51,9 @@ router.route('/update/:id').post((req, res) => {
             question.subject = req.body.subject;
             question.chapter = req.body.chapter;
             question.difficulty = req.body.difficulty;
-            
+
             question.save()
-                .then(() => res.json('User updated!'))
+                .then(() => res.json('Question updated!'))
                 .catch(err => res.status(400).json('Error: ' + err));
         })
         .catch(err => res.status(400).json('Error: ' + err));
