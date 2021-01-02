@@ -11,7 +11,7 @@
 - coaching : string
 - class : string
 - coaching_batch : string
-- target_exams : array
+- target_exams : array of strings
 - weekly_hours_committed : integer
 
 ## Questions
@@ -21,7 +21,7 @@
 - options : array of *options*
 - tags : array of string
 - subject : string
-- chapter : array of chapters
+- chapter : array of strings
 - difficulty-level : float
 
 ## Interactions

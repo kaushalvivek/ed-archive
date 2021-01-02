@@ -9,13 +9,22 @@ router.route('/').get((req, res) => {
 
 // route to add
 router.route('/add').post((req, res) => {
-    const username = req.body.username;
     const email = req.body.email;
-    const name = req.body.name;
     const password = req.body.password;
-    const metadata = req.body.metadata;
-  
-    const newUser = new User({ username, email, name, password, metadata });
+    const name = req.body.name;
+    const gender = req.body.gender;
+    const city = req.body.city;
+    const school = req.body.school;
+    const coaching = req.body.coaching;
+    const schoolClass = req.body.schoolClass;
+    const coachingBatch = req.body.coachingBatch;
+    const targetExam = req.body.targetExam;
+    const weeklyHoursCommitted = req.body.weeklyHoursCommitted;
+
+    const newUser = new User({
+        email, password, name, gender, city, school, coaching, schoolClass,
+        coachingBatch, targetExam, weeklyHoursCommitted
+    });
 
     newUser.save()
         .then(() => res.json('User added!'))
@@ -40,7 +49,17 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     User.findById(req.params.id)
         .then(user => {
-            user.username = req.body.username;
+            user.email = req.body.email;
+            user.password = req.body.password;
+            user.name = req.body.name;
+            user.gender = req.body.gender;
+            user.city = req.body.city;
+            user.school = req.body.school;
+            user.coaching = req.body.coaching;
+            user.schoolClass = req.body.schoolClass;
+            user.coachingBatch = req.body.coachingBatch;
+            user.targetExam = req.body.targetExam;
+            user.weeklyHoursCommitted = req.body.weeklyHoursCommitted;
 
             user.save()
                 .then(() => res.json('User updated!'))

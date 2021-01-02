@@ -2,39 +2,52 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const metaSchema = new Schema({
-  attr: {
-    type: String,
-    required: true,
-  },
-  value: {
-    type: String,
-    required: true,
-  }
-})
-
 const userSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-    minlength: 3
-  },
   email: {
     type: String,
     required: true,
     unique: true,
   },
-  name: {
-    type: String,
-    required: true,
-  },
   password: {
     type: String,
     required: true,
   },
-  metadata: [metaSchema]
+  name: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  school: {
+    type: String,
+    required: true,
+  },
+  coaching: {
+    type: String,
+    required: true,
+  },
+  schoolClass: {
+    type: String,
+    required: true,
+  },
+  coachingBatch: {
+    type: String,
+    required: true,
+  },
+  targetExam: {
+    type: [String],
+    required: true,
+  },
+  weeklyHoursCommitted: {
+    type: Number,
+    required: true,
+  }
 }, {
   timestamps: true,
 });
