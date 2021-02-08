@@ -16,6 +16,7 @@ const questionSchema = new Schema({
   text: { type: String },
   imageUrl: { type: String },
   options: [optionSchema],
+  hint: String,
   tags: [String],
   subject : String,
   chapter: String,

@@ -16,7 +16,7 @@ require('dotenv').config();
 
 // Create express web app, specify port
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 80;
 
 // Necessary specifications for functioning
 app.use(cors());
@@ -43,6 +43,7 @@ app.use(adminBro.options.rootPath, router)
 const userRouter = require('./routes/user');
 const interactionRouter = require('./routes/interaction');
 const questionRouter = require('./routes/question');
+
 app.use('/user', userRouter);
 app.use('/interaction', interactionRouter);
 app.use('/question', questionRouter);
