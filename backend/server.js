@@ -16,7 +16,7 @@ require('dotenv').config();
 
 // Create express web app, specify port
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 
 // Necessary specifications for functioning
 app.use(cors());
