@@ -7,7 +7,6 @@ const optionSchema = new Schema({
   imageUrl : { type: String }, 
   isCorrect: {
     type: Boolean,
-    required: true,
   },
   tags: [String]
 })
