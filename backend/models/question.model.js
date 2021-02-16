@@ -20,6 +20,10 @@ const questionSchema = new Schema({
   subject : String,
   chapter: String,
   difficulty: mongoose.Decimal128,
+  screenshotUrl : {type: String},
+  solutionText: {type: String},
+  solutionImageUrl : {type: String},
+  author : {type: String}
 }, {
   timestamps: true,
 });

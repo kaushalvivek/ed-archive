@@ -17,9 +17,15 @@ router.route('/add').post((req, res) => {
     const subject = req.body.subject;
     const chapter = req.body.chapter;
     const difficulty = req.body.difficulty;
+    const screenshotUrl = req.body.screenshotUrl;
+    const solutionImageUrl = req.body.solutionImageUrl;
+    const solutionText = req.body.solutionText;
+    const author = req.body.author;
+
 
     const newQuestion = new Question({
-        text, ImgUrl, options, hint, tags, subject, chapter, difficulty
+        text, ImgUrl, options, hint, tags, subject, chapter, difficulty,
+         screenshotUrl, solutionImageUrl, solutionText, author
     });
 
     newQuestion.save()
@@ -53,6 +59,10 @@ router.route('/update/:id').post((req, res) => {
             question.subject = req.body.subject;
             question.chapter = req.body.chapter;
             question.difficulty = req.body.difficulty;
+            question.screenshotUrl = req.body.screenshotUrl;
+            question.solutionImageUrl = req.body.solutionImageUrl;
+            question.solutionText = req.body.solutionText;
+            question.author = req.body.author;
 
             question.save()
                 .then(() => res.json('Question updated!'))
